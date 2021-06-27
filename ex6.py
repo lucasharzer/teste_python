@@ -1,41 +1,23 @@
-from random import randint
-print('=-'*17)
-print('VAMOS JOGAR PAR OU ÍMPAR')
-print('=-'*17)
-v = 0
+print('\033[1;31m-\033[m'*20)
+print('  \033[1;34mNÚMERO DE VOGAIS\033[m')
+print('\033[1;31m-\033[m'*20)
 while True:
-    jogador = int(input('Digite um valor: '))
+    palavra = str(input('\033[0;33mDigite uma palavra:\033[m '))
+    cont = 0
+    for letra in palavra:
+        if letra in 'aâeéíiouãAEÉÍIOUÃÂ':
+            cont += 1
+    print(f'A palavra \033[1;36m{palavra}\033[m tem \033[1;32m{cont}\033[m vogais.')
     while True:
-        e = str(input('Par ou Ímpar? [P/I] ')).strip().upper()[0]
-        if e in 'PIip':
+        print('\033[1;31m-\033[m'*20)
+        res = str(input('\033[0;33mQuer continuar? [S/N]\033[m ')).strip().upper()[0]
+        if res in 'SN':
             break
-    computador = randint(1, 10)
-    soma = jogador + computador
-    print('-'*17)
-    print(f'Você jogou {jogador} e o computador {computador}. Total de {soma}: ', end='')
-    if soma % 2 == 0:
-        print('DEU PAR!')
-        print('-'*17)
-        if e == 'P':
-            v += 1
-            print('Você VENCEU!\nVamos jogar novamente...')
-        else:
-            print('Você PERDEU!')
-            break
-    else:
-        print('DEU ÍMPAR!')
-        print('-'*17)
-        if e == 'I':
-            v += 1
-            print('Você VENCEU!\nVamos jogar novamente...')
-        else:
-            print('Você PERDEU!')
-            break
-    print('=-'*17)
-print('=-'*17)
-if v == 1:
-    print('GAME OVER! Você venceu \033[1;32m1\033[m vez.')
-else:
-    print(f'GAME OVER! Você venceu \033[1;32m{v}\033[m vezes.')
+    if res == 'N':
+        break
+    print('\033[1;31m-\033[m'*20)
+print('\033[1;31m-\033[m'*20)
+print('\033[1;34mFIM!\033[m')
+
 
 
